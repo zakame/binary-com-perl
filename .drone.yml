@@ -1,0 +1,12 @@
+kind: pipeline
+type: docker
+name: rebuild
+
+steps:
+- name: Run rebuild.sh
+  image: buildpack-deps:stretch
+  commands:
+  - /bin/bash ./rebuild.sh
+  when:
+    branch:
+      - drone-test
